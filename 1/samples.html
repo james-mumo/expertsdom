@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expadom | Samples</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            padding: 10px;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            height: 70vh; /* Set to 70% height */
+            background: linear-gradient(225deg, #00cf8a, #0084d6 98.12%);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px; /* Optional: limits the width of the text */
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            height: 85%; /* Set to 85% of hero height */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        .hero-image img {
+            height: 100%; /* Make image take full height of its container */
+            width: auto; /* Maintain aspect ratio */
+            object-fit: cover; /* Cover the area without distortion */
+        }
+
+        h1 {
+            font-size: 44px; /* Set font size for the header */
+        }
+
+        .search-container {
+            position: relative; /* Required for positioning the button */
+            margin-top: 20px; /* Space between paragraphs and input */
+        }
+
+        input[type="text"] {
+            width: 100%; /* Full width */
+            
+            border: none; /* No border */
+            border-radius: 5px; /* Round input edges */
+            box-shadow: none; /* Remove box-shadow */
+            padding: 15px;
+        }
+
+        input[type="text"]:focus {
+            outline: none; /* Disable focus border */
+        }
+
+        button {
+            position: absolute; /* Position the button on top */
+            right: 0; /* Align to the right */
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust for vertical centering */
+            padding: 10px 20px;
+            background-color: #0084d6;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px; /* Round button edges */
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Explore 150,000+ free essays to help you write</h1>
+            <p>Find relevant information about your paper topic in our huge essays samples database.</p>
+            <div class="search-container">
+                <input type="text" placeholder="Search for essays...">
+                <button>Find Essay</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="./img/gal.jpg" alt="Hero Image"> 
+        </div>
+    </div>
+</body>
+</html>
