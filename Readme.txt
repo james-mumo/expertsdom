@@ -7,3 +7,14 @@ Credential for admin panel :
 
 Username: admin
 Password: 1234
+
+
+---------------------------------------------------------------------------------
+
+https://dashboard.tawk.to/signup
+
+name -- James Mumo
+
+Email -- 98mumo@gmail.com
+
+Password -- Expertsdom98
