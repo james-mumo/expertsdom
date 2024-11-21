@@ -47,9 +47,25 @@ if (isset($_POST['signup'])) {
         $query->bindParam(':status', $status, PDO::PARAM_INT);
 
         if ($query->execute()) {
-            // Redirect with a success message
-            $_SESSION['message'] = 'Signup successful! You can now login.';
-            header('Location: login.php'); // Redirect to login page
+            // Fetch the newly inserted user data
+            $sql = "SELECT * FROM tblusers WHERE username = :username LIMIT 1";
+            $query = $dbh->prepare($sql);
+            $query->bindParam(':username', $username, PDO::PARAM_STR);
+            $query->execute();
+            $result = $query->fetch(PDO::FETCH_OBJ);
+
+            // Set session variables for user data
+            $_SESSION['sid'] = $result->id;
+            $_SESSION['name'] = $result->name;
+            $_SESSION['lastname'] = $result->lastname;
+            $_SESSION['permission'] = $result->permission;
+            $_SESSION['email'] = $result->email;
+
+            // Set success message in session
+            $_SESSION['message'] = 'Signup successful! You can now log in.';
+            
+            // Redirect to the dashboard after signup (delayed by 3 seconds)
+            header("Location: signup.php?success=true");
             exit();
         } else {
             $message = 'Signup failed. Please try again later.';
@@ -59,6 +75,11 @@ if (isset($_POST['signup'])) {
 ?>
 
 <?php @include("includes/head.php"); ?>
+
+<!-- SweetAlert2 CDN -->
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.10/dist/sweetalert2.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.10/dist/sweetalert2.all.min.js"></script>
+
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="card">
@@ -75,81 +96,32 @@ if (isset($_POST['signup'])) {
                     </div>
                 <?php endif; ?>
 
-           <form action="" method="post">
-    <div class="row mb-3">
-        <div class="col">
-            <div class="input-group">
-                <input type="text" name="name" class="form-control" placeholder="First Name" required>
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-user"></span>
+                <form action="" method="post" id="signupForm">
+                    <!-- Form inputs here -->
+                    <div class="input-group mb-3">
+                        <input type="text" name="name" class="form-control" placeholder="First Name" required>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="input-group">
-                <input type="text" name="lastname" class="form-control" placeholder="Last Name" required>
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-user"></span>
+                    <div class="input-group mb-3">
+                        <input type="text" name="lastname" class="form-control" placeholder="Last Name" required>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="input-group mb-3">
-        <input type="text" name="username" class="form-control" placeholder="Username" required>
-        <div class="input-group-append">
-            <div class="input-group-text">
-                <span class="fas fa-user"></span>
-            </div>
-        </div>
-    </div>
-
-    <div class="input-group mb-3">
-        <input type="email" name="email" class="form-control" placeholder="Email" required>
-        <div class="input-group-append">
-            <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
-            </div>
-        </div>
-    </div>
-
-    <div class="input-group mb-3">
-        <input type="password" name="password" class="form-control" placeholder="Password" required>
-        <div class="input-group-append">
-            <div class="input-group-text">
-                <span class="fas fa-lock"></span>
-            </div>
-        </div>
-    </div>
-
-    <div class="input-group mb-3">
-        <input type="number" name="mobile" class="form-control" placeholder="Mobile" optional>
-        <div class="input-group-append">
-            <div class="input-group-text">
-                <span class="fas fa-phone"></span>
-            </div>
-        </div>
-    </div>
-
-    <div class="input-group mb-3">
-        <select name="sex" class="form-control">
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
-    </div>
-
-    <div class="row">
-        <div class="col-4">
-            <button type="submit" name="signup" class="btn btn-primary btn-block">Sign Up</button>
-        </div>
-    </div>
-</form>
-
+                    <div class="input-group mb-3">
+                        <input type="text" name="username" class="form-control" placeholder="Username" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="email" name="email" class="form-control" placeholder="Email" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="number" name="mobile" class="form-control" placeholder="Mobile" optional>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="submit" name="signup" class="btn btn-primary btn-block">Sign Up</button>
+                        </div>
+                    </div>
+                </form>
 
                 <div class="text-center">
                     <p class="mb-1">
@@ -159,20 +131,44 @@ if (isset($_POST['signup'])) {
             </div>
         </div>
     </div>
+
+    <!-- Loader HTML (hidden by default) -->
+    <div id="loader" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
     <?php @include("includes/foot.php"); ?>
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/673e09122480f5b4f5a11e8e/1id556sjd';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+    <!-- SweetAlert2 Script for Signup Success -->
+    <script>
+        // Set the alert message from PHP
+        var alertMessage = "<?php echo isset($_SESSION['message']) ? $_SESSION['message'] : ''; ?>";
+
+        if (alertMessage !== "") {
+            // Show the loader when processing
+            document.getElementById("loader").style.display = "block";
+
+            setTimeout(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: alertMessage,
+                    text: 'Redirecting to your dashboard...',
+                    showConfirmButton: false,
+                    timer: 2000
+                }).then(() => {
+                    window.location.href = 'dashboard.php'; // Redirect to the dashboard
+                });
+
+                // Hide the loader
+                document.getElementById("loader").style.display = "none";
+
+                // Clear the session message after the alert
+                <?php unset($_SESSION['message']); ?>
+            }, 1000); // Delay for 3 seconds before showing the alert and redirecting
+        }
+    </script>
+
 </body>
 </html>

@@ -8,15 +8,16 @@ if(isset($_POST['submit']))
   $sid=$_SESSION['edid']; 
   $studentname=$_POST['studentname'];
   $regno=$_POST['regno'];
-  $sex=$_POST['sex'];
+  // $sex=$_POST['sex'];
   $age=$_POST['age'];
   $stream=$_POST['stream'];
   $class=$_POST['class'];
-  $sql="update students set studentName=:studentname,studentno=:regno,gender=:sex,age=:age,class=:class,stream=:stream where id='$sid'";
+  $sql="update students set studentName=:studentname,studentno=:regno,age=:age,class=:class,stream=:stream where id='$sid'";
+  // $sql="update students set studentName=:studentname,studentno=:regno,gender=:sex,age=:age,class=:class,stream=:stream where id='$sid'";
   $query = $dbh->prepare($sql);
   $query->bindParam(':studentname',$studentname,PDO::PARAM_STR);
   $query->bindParam(':regno',$regno,PDO::PARAM_STR);
-  $query->bindParam(':sex',$sex,PDO::PARAM_STR);
+  // $query->bindParam(':sex',$sex,PDO::PARAM_STR);
   $query->bindParam(':age',$age,PDO::PARAM_STR);
   $query->bindParam(':stream',$stream,PDO::PARAM_STR);
   $query->bindParam(':class',$class,PDO::PARAM_STR);
@@ -175,10 +176,10 @@ if(isset($_POST['save2']))
 
                   <div class="row">
                     <div class="col-md-2">
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label>Sex</label>
                         <input class="form-control" name="sex" value="<?php  echo $row['gender'];?>" required>
-                      </div>        
+                      </div>         -->
                     </div>
                     <div class="col-md-2">
                       <div class="form-group">

@@ -59,7 +59,7 @@ header('location:logout.php');
                         <div class="col-lg-4 col-6">
                             <!-- small box -->
                             <div class="small-box bg-info">
-                                <?php $query1=mysqli_query($con,"Select * from students ");
+                                <?php $query1=mysqli_query($con,"Select * from tblusers ");
                                 $totalcust=mysqli_num_rows($query1);
                                 ?>
                                 <div class="inner">
@@ -73,8 +73,8 @@ header('location:logout.php');
                             </div>
                         </div>
                         <!-- ./col -->
-                        <div class="col-lg-4 col-6">
-                            <!-- small box -->
+                        <!-- <div class="col-lg-4 col-6">
+                            
                             <div class="small-box bg-success">
                                 <?php $query2=mysqli_query($con,"Select * from students where gender='Male'");
                                 $totalmale=mysqli_num_rows($query2);
@@ -89,11 +89,10 @@ header('location:logout.php');
                                 </div>
                                 <a href="student_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- ./col -->
-                        <div class="col-lg-4 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-info">
+                        <!-- <div class="col-lg-4 col-6">
+                                                        <div class="small-box bg-info">
                                 <?php $query3=mysqli_query($con,"Select * from students where gender='Female'");
                                 $totalfemale=mysqli_num_rows($query3);
                                 ?>
@@ -107,7 +106,7 @@ header('location:logout.php');
                                 </div>
                                 <a href="student_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- ./col -->
                         <!-- ./col -->
                     </div>

@@ -10,7 +10,7 @@ if (strlen($_SESSION['sid']==0)) {
     $names=$_POST['names'];
     $age=$_POST['age'];
     $studentno=$_POST['studentno'];
-    $sex=$_POST['sex'];
+    // $sex=$_POST['sex'];
     $class=$_POST['class'];
     $stream=$_POST['stream'];
     $parentname=$_POST['parentname'];
@@ -25,7 +25,8 @@ if (strlen($_SESSION['sid']==0)) {
     $village=$_POST['village'];
     $photo=$_FILES["photo"]["name"];
     move_uploaded_file($_FILES["photo"]["tmp_name"],"studentimages/".$_FILES["photo"]["name"]);
-    $query=mysqli_query($con, "insert into  students(studentno,StudentName,class,stream,age,gender,email,parentName,relation,occupation,country,district,state,village,contactno,nextphone,studentImage) value('$studentno','$names','$class','$stream','$age','$sex','$email','$parentname','$relation','$ocupation','$country','$district','$state','$village','$phone','$nextphone','$photo')");
+    $query=mysqli_query($con, "insert into  students(studentno,StudentName,class,stream,age,email,parentName,relation,occupation,country,district,state,village,contactno,nextphone,studentImage) value('$studentno','$names','$class','$stream','$age','$email','$parentname','$relation','$ocupation','$country','$district','$state','$village','$phone','$nextphone','$photo')");
+    // $query=mysqli_query($con, "insert into  students(studentno,StudentName,class,stream,age,gender,email,parentName,relation,occupation,country,district,state,village,contactno,nextphone,studentImage) value('$studentno','$names','$class','$stream','$age','$sex','$email','$parentname','$relation','$ocupation','$country','$district','$state','$village','$phone','$nextphone','$photo')");
     if ($query) {
       echo "<script>alert('Student has been registered.');</script>"; 
       echo "<script>window.location.href = 'add_student.php'</script>";   
@@ -96,14 +97,14 @@ if (strlen($_SESSION['sid']==0)) {
                           <label for="age">Age</label>
                           <input type="text" class="form-control" id="age" name="age" placeholder="age"required>
                         </div>
-                        <div class="form-group col-md-2">
+                        <!-- <div class="form-group col-md-2">
                           <label for="sex">Sex</label>
                           <select type="select" class="form-control" id="sex" name="sex"required>
                             <option>Select Sex</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                           </select>
-                        </div>
+                        </div> -->
                       </div>
                       <div class="row">
                         <div class="form-group col-md-4">

@@ -10,7 +10,7 @@
     <header>
         <nav>
             <div>
-                <a href="#" id="brandText">ExpadomUk</a>
+                <a href="#" id="brandText">Expertsdom</a>
                 <div>
                     <div>
                         <a href="#" id="writingSamplesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
