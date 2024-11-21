@@ -75,12 +75,12 @@ if(isset($_POST['login']))
           header("location:http://$host$uri/$extra");
           exit();                 
         } else { 
-          echo "<script>alert('Your account was blocked please approach Admin');document.location ='index.php';</script>";                                        
+          echo "<script>alert('Your account was blocked please approach Admin');document.location ='index.html';</script>";                                        
         }  
 
       } } 
     } else{ 
-      $extra="index.php";
+      $extra="index.html";
       $username=$_POST['username'];
       $uip=$_SERVER['REMOTE_ADDR'];
       $status=0;
@@ -166,18 +166,18 @@ if(isset($_POST['login']))
     <script src="assets/js/core/js.cookie.min.js"></script>
 
 
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/673903944304e3196ae3ac0a/1icrbbvum';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-  </script>
-  <!--End of Tawk.to Script-->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/673e09122480f5b4f5a11e8e/1id556sjd';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
   </body>
   </html>

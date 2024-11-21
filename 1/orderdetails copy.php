@@ -11,7 +11,7 @@ $user_id = isset($_SESSION['sid']) ? $_SESSION['sid'] : null;
 
 if ($user_id) {
     // Assuming 'users' table stores user information
-    $query = "SELECT email FROM tblusers WHERE id = '$user_id'";
+    $query = "SELECT email FROM users WHERE id = '$user_id'";
     $result = mysqli_query($con, $query);
 
     if ($result && mysqli_num_rows($result) > 0) {

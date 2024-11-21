@@ -29,7 +29,7 @@ if(isset($_POST['login']))
       $chngpwd1-> bindParam(':newpassword', $newpassword, PDO::PARAM_STR);
       $chngpwd1->execute();
       echo "<script>alert('Your Password succesfully changed');</script>";
-      echo "<script>window.location.href = 'index.php'</script>";
+      echo "<script>window.location.href = 'index.html'</script>";
     }
     else {
       echo "<script>alert('Email id or Mobile no is invalid');</script>"; 
@@ -96,7 +96,7 @@ if(isset($_POST['login']))
         </form>
         <br>
         <p class="mb-1">
-          <a href="index.php">login</a>
+          <a href="index.html">login</a>
         </p>
       </div>
       <!-- /.login-card-body -->
