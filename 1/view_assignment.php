@@ -147,6 +147,13 @@ if (isset($_POST['view_id'])) {
     ?>
 </p>
 
+<?php if ($permission === 'User') { ?>
+<div style="margin-bottom: 20px; flex:1;">
+    <label for="comments" style="font-size: 18px; font-weight: bold; color: #333; margin-bottom: 10px;">Comments from Tutor:</label>
+    <textarea id="comments" style="padding: 10px; font-size: 14px; width: 100%; height: 120px; border-radius: 4px; border: 1px solid #ddd;"><?php echo htmlentities($row['comments']); ?></textarea>
+</div>
+<?php } ?>
+
                     <?php if ($permission === 'Admin' || $permission === 'Super User') { ?>
 
             <div style="margin-bottom: 20px;">
@@ -170,16 +177,20 @@ if (isset($_POST['view_id'])) {
 </div>
 
             
-        </form>
 
 
-        
-    </div>
 
-    <div style="margin-bottom: 20px;">
-        <label for="comments" style="font-size: 18px; font-weight: bold; color: #333; margin-bottom: 10px;">Comments to Student:</label>
-        <textarea id="comments" style="padding: 10px; font-size: 14px; width: 100%; height: 120px; border-radius: 4px; border: 1px solid #ddd;"><?php echo htmlentities($row['comments']); ?></textarea>
-    </div>
+</div>
+
+<div style="margin-bottom: 20px;">
+    <label for="comments" style="font-size: 18px; font-weight: bold; color: #333; margin-bottom: 10px;">Comments to Student:</label>
+    <textarea id="comments" style="padding: 10px; font-size: 14px; width: 100%; height: 120px; border-radius: 4px; border: 1px solid #ddd;"><?php echo htmlentities($row['comments']); ?></textarea>
+</div>
+
+
+
+
+</form>
 
     <div style="text-align: center; margin-top: 20px;">
         <button type="button" class="btn" id="delete_assignment" data-id="<?php echo $row['id']; ?>" style="padding: 10px 20px; font-size: 16px; border: none; cursor: pointer; border-radius: 4px; background-color: #dc3545; color: white;">
@@ -191,6 +202,9 @@ if (isset($_POST['view_id'])) {
     </div>
 
                 <?php } ?>
+
+
+
 
 </div>
 
