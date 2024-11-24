@@ -1,20 +1,14 @@
-Create a database with name sdmsdb
-
-Import sdmsdb.sql file(given inside the zip package in SQL file folder)
 
 
-Credential for admin panel :
 
-Username: admin
-Password: 1234
+chnage the mobile length on online db on tblusers
 
 
----------------------------------------------------------------------------------
+ALTER TABLE assignments 
+ADD COLUMN submitted_on DATETIME;
 
-https://dashboard.tawk.to/signup
+ALTER TABLE assignments 
+ADD COLUMN comments TEXT;
 
-name -- James Mumo
 
-Email -- 98mumo@gmail.com
-
-Password -- Expertsdom98
+aletr file var lenght to 23000

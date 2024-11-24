@@ -108,7 +108,7 @@ if(isset($_GET['del']))
                       <tr> 
                         <th>#</th>
                         <th>Student Image</th>
-                        <th>Student Number</th>
+                        <th>Student Username</th>
                         <th>Student Name</th>
                         <th>Email </th>
                         <th>Action</th>
@@ -122,9 +122,9 @@ if(isset($_GET['del']))
                         ?>                  
                         <tr>
                           <td><?php echo htmlentities($cnt);?></td>
-                          <td class="align-middle"><a href="#"><img src="studentimages/<?php echo htmlentities($row['studentImage']);?>" width="40" height="40"> </a></td>
-                          <td><?php echo htmlentities($row['studentno']);?></td>
-                          <td><?php echo htmlentities($row['studentName']);?></td>
+                          <td class="align-middle"><a href="#"><img src="staff_images/prof.png" width="40" height="40"> </a></td>
+                          <td><?php echo htmlentities($row['username']);?></td>
+                          <td><?php echo htmlentities($row['name']);?> <?php echo htmlentities($row['lastname']);?></td>
                           <td><?php echo htmlentities($row['email']);?></td>
                           <td>
                             <button  class=" btn btn-primary btn-xs edit_data" id="<?php echo  $row['id']; ?>" title="click for edit">Edit</i></button>

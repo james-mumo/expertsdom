@@ -114,7 +114,7 @@ if (isset($_POST['signup'])) {
                         <input type="password" name="password" class="form-control" placeholder="Password" required>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="number" name="mobile" class="form-control" placeholder="Mobile" optional>
+                        <input type="number" name="mobile" class="form-control" placeholder="Mobile" optional maxlength="12" minlength="12">
                     </div>
                     <div class="row">
                         <div class="col-4">
