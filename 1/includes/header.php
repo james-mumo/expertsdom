@@ -6,7 +6,7 @@
       <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="index3.html" class="nav-link">Home</a>
+      <a href="dashboard.php" class="nav-link">Home</a>
     </li>
   </ul>
 
@@ -33,14 +33,14 @@
         </a>
         <div class="dropdown-divider"></div>
         <a href="changepassword.php" class="dropdown-item">
-          <i class="fas fa-users mr-2"></i> settings 
+          <i class="fas fa-users mr-2"></i> settings
         </a>
         <div class="dropdown-divider"></div>
         <a href="logout.php" class="dropdown-item">
-          <i class="fas fa-file mr-2"></i> logout 
+          <i class="fas fa-file mr-2"></i> logout
         </a>
       </div>
     </li>
   </ul>
 </nav>
-    <!-- /.navbar -->
+<!-- /.navbar -->

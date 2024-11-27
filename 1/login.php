@@ -146,7 +146,7 @@ if(isset($_POST['login']))
       Swal.fire({
         icon: 'success',
         title: 'Login Successful!',
-        text: 'Welcome to your dashboard.',
+        text: 'Welcome to the dashboard.',
         showConfirmButton: false,
                     timer: 2000
       }).then(() => {

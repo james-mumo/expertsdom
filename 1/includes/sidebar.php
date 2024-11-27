@@ -13,7 +13,7 @@
       <?php
       // Fetch user details based on the session user ID
       $eid = $_SESSION['sid'];
-      $sql = "SELECT * FROM tblusers WHERE id = :eid";                                    
+      $sql = "SELECT * FROM tblusers WHERE id = :eid";
       $query = $dbh->prepare($sql);
       $query->bindParam(':eid', $eid, PDO::PARAM_STR);
       $query->execute();
@@ -27,14 +27,14 @@
           $userImage = htmlentities($row->userimage);
       ?>
 
-      <div class="image" style="background-color: white; padding: 5px; border-radius: 50%;">
-        <img class="img-circle" src="staff_images/prof.png" width="90px" height="90px" alt="User profile picture">
-      </div>
+          <div class="image" style="background-color: white; padding: 5px; border-radius: 50%;">
+            <img class="img-circle" src="staff_images/prof.png" width="90px" height="90px" alt="User profile picture">
+          </div>
 
-      <div class="info">
-        <a href="profile.php" class="d-block"><?php echo $name . ' ' . $lastName; ?></a>
-        <!-- Display the user permission -->
-      </div>
+          <div class="info">
+            <a href="profile.php" class="d-block"><?php echo $name . ' ' . $lastName; ?></a>
+            <!-- Display the user permission -->
+          </div>
 
       <?php
         }
@@ -54,14 +54,14 @@
         </li>
 
         <!-- Show Add Student only for Admin and Super User -->
-        <!-- <?php if ($permission === 'Admin' || $permission === 'Super User') { ?>
-          <li class="nav-item">
-            <a href="add_student.php" class="nav-link">
-              <i class="nav-icon far fa-plus-square"></i>
-              <p>Add Student</p>
-            </a>
-          </li>
-        <?php } ?> -->
+        <!--  -->
+        <!-- <li class="nav-item">
+          <a href="paypal_checkout.php" class="nav-link">
+            <i class="nav-icon far fa-plus-square"></i>
+            <p>Checkout</p>
+          </a>
+        </li> -->
+
 
         <!-- Show Manage Students only for Admin and Super User -->
         <?php if ($permission === 'Admin' || $permission === 'Super User') { ?>
@@ -81,7 +81,7 @@
           </a>
         </li>
 
-        <li class="nav-header">SETTINGS & SECURITY</li>
+        <!-- <li class="nav-header">SETTINGS & SECURITY</li> -->
 
         <!-- Show Register User only for Admin and Super User -->
         <?php if ($permission === 'Admin' || $permission === 'Super User') { ?>
@@ -102,6 +102,29 @@
             </a>
           </li>
         <?php } ?>
+
+        <li class="nav-item">
+          <a href="profile.php" class="nav-link">
+            <i class="fas fa-envelope nav-icon"></i>
+            <p> profile </p>
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="changepassword.php" class="nav-link">
+            <i class="fas fa-users mr-2"></i>
+            <p> settings </p>
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="logout.php" class="nav-link">
+            <i class="fas fa-file nav-icon"></i>
+            <p> logout </p>
+          </a>
+        </li>
 
       </ul>
     </nav>

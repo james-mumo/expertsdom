@@ -62,7 +62,7 @@ if (isset($_POST['signup'])) {
             $_SESSION['email'] = $result->email;
 
             // Set success message in session
-            $_SESSION['message'] = 'Signup successful! You can now log in.';
+            $_SESSION['message'] = 'Signup successful!!!.';
             
             // Redirect to the dashboard after signup (delayed by 3 seconds)
             header("Location: signup.php?success=true");
@@ -96,32 +96,59 @@ if (isset($_POST['signup'])) {
                     </div>
                 <?php endif; ?>
 
-                <form action="" method="post" id="signupForm">
-                    <!-- Form inputs here -->
-                    <div class="input-group mb-3">
-                        <input type="text" name="name" class="form-control" placeholder="First Name" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" name="lastname" class="form-control" placeholder="Last Name" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" name="username" class="form-control" placeholder="Username" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control" placeholder="Email" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control" placeholder="Password" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="number" name="mobile" class="form-control" placeholder="Mobile" optional maxlength="12" minlength="12">
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
-                            <button type="submit" name="signup" class="btn btn-primary btn-block">Sign Up</button>
-                        </div>
-                    </div>
-                </form>
+<form action="" method="post" id="signupForm">
+    <!-- Form inputs here -->
+    <div class="row mb-3">
+        <div class="col-6">
+            <input type="text" name="name" class="form-control" placeholder="First Name" required>
+        </div>
+        <div class="col-6">
+            <input type="text" name="lastname" class="form-control" placeholder="Last Name" required>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <input type="text" name="username" class="form-control" placeholder="Username" required>
+        <div class="input-group-append">
+            <div class="input-group-text">
+                <span class="fas fa-user"></span>
+            </div>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <input type="email" name="email" class="form-control" placeholder="Email" required>
+        <div class="input-group-append">
+            <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+            </div>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <input type="number" name="mobile" class="form-control" placeholder="Mobile" optional maxlength="12" minlength="12">
+        <div class="input-group-append">
+            <div class="input-group-text">
+                <span class="fas fa-phone-alt"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
+        <div class="input-group-append">
+            <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row d-flex justify-content-center">
+        <div class="col-4">
+            <button type="submit" name="signup" class="btn btn-primary btn-block">Sign Up</button>
+        </div>
+    </div>
+</form>
+
+
+
 
                 <div class="text-center">
                     <p class="mb-1">
@@ -154,7 +181,7 @@ if (isset($_POST['signup'])) {
                 Swal.fire({
                     icon: 'success',
                     title: alertMessage,
-                    text: 'Redirecting to your dashboard...',
+                    text: 'Redirecting to the dashboard...',
                     showConfirmButton: false,
                     timer: 2000
                 }).then(() => {
