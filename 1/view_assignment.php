@@ -71,7 +71,7 @@ if (isset($_POST['view_id'])) {
         <div style="margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; font-size: 16px; color: #555;">
                 <div style="width: 50%; padding-right: 10px; border-right: 1px solid #ccc;">
-                    <p style=""><strong style="color: #00796b;">Deadline:</strong>
+                    <p><strong style="color: #00796b;">Deadline:</strong>
                         <span style="background-color: #f7f7f7; padding: 5px; border-radius: 4px;">
 
                             <?php
@@ -148,7 +148,7 @@ if (isset($_POST['view_id'])) {
                 <div style="flex-grow: 1;">
                     <h4 style="font-size: 1.0rem; color: #00796b; font-weight: bold;" class="mb-3">Kindly Pay and Download the Attached Work Results</h4>
                     <p style="font-size: 1rem; color: #00796b; margin: 5px 0;">
-                        <span style="font-weight: bold;">PayPal Email:</span>
+                        <span style="font-weight: bold;">Paypal Email:</span>
                         <span style="color: #388e3c;"><?php echo $paypalEmail; ?></span>
                     </p>
                     <p style="font-size: 1rem; color: #00796b; margin: 5px 0;">
@@ -158,7 +158,7 @@ if (isset($_POST['view_id'])) {
                 </div>
 
                 <!-- PayPal Icon and Link -->
-                <a href="paypal_checkout.php" class="btn btn-primary d-flex align-items-center"
+                <a href="#" class="btn btn-primary d-flex align-items-center"
                     style="background-color: #00796b; color: white; padding: 10px 15px; border-radius: 5px; font-size: 1rem; text-decoration: none; display: flex; align-items: center;">
                     <i class="fab fa-paypal" style="font-size: 1.8rem; margin-right: 10px;"></i>
                     <span>Pay Now with PayPal</span>
