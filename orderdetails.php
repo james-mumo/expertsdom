@@ -262,7 +262,7 @@ if (isset($_POST['submit'])) {
 
             <br>
             <span id="downPaymentText" style="color: green;">
-                Kindly enter your email below so we can share the <strong id="downPaymentAmount">file</strong> once we are done, Thank You!
+                Kindly enter your email below so we can share <strong id="downPaymentAmount">The Work Results File</strong> once we are done, Thank You!
             </span>
 
             <br>
