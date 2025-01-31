@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Expertsdom</title>
+  <link rel="icon" href="img/globe.png" type="image/x-icon">
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+    type="text/css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+  <!-- Custom styles for this template -->
+  <link href="css/landing-page.min.css" rel="stylesheet" />
+
+  <style>
+    #brandText {
+      font-weight: bold;
+      /* Makes text bold */
+      font-size: 1.5rem;
+      /* Adjusts the font size, 1.5rem is larger than the default */
+    }
+
+    ul.text-start {
+      padding-left: 0;
+      /* Remove default padding */
+      list-style-position: inside;
+      /* Align bullets with text */
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    .btn-outline-info {
+      padding: 10px 20px;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .modal-header {
+      position: relative;
+      padding: 0;
+      /* Remove padding to make the image fill the space */
+    }
+
+    .modal-image {
+      width: 100%;
+      height: 50%;
+      /* Make the image take the top half */
+      object-fit: cover;
+      /* Ensures the image covers the area properly */
+    }
+
+    .modal-body {
+      padding-top: 20px;
+      /* Adds spacing between the image and content */
+    }
+
+    /* Close button on top of the image */
+    .close {
+      position: absolute;
+      top: 10px;
+      /* Adjust as needed */
+      right: 10px;
+      /* Adjust as needed */
+      z-index: 10;
+      /* Make sure it stays above the image */
+    }
+
+    /* Close button on top of the image */
+    .close {
+      position: absolute;
+      top: 10px;
+      /* Adjust as needed */
+      right: 10px;
+      /* Adjust as needed */
+      z-index: 10;
+      /* Make sure it stays above the image */
+      font-size: 4rem;
+      /* Make the icon bigger */
+      color: rgb(0, 0, 0);
+      /* Make the icon red */
+    }
+
+    .close:hover {
+      color: darkred;
+      /* Dark red on hover */
+      text-decoration: none;
+      /* Remove underline on hover */
+    }
+
+    
+  </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+    <div class="container">
+      <!-- Navbar Brand -->
+      <a class="navbar-brand" href="#" id="brandText">Expertsdom</a>
+      <!-- Toggler for Mobile View -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible Navbar Content -->
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="navbar-nav ml-auto">
+          <!-- Dropdown Menu -->
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="writingSamplesDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Writing Help
+            </a>
+            <div class="dropdown-menu" aria-labelledby="writingSamplesDropdown">
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#essayWritingModal">Essay Writing</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#essayWritingModal">Research Paper Writing</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#essayWritingModal">Thesis Writing</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#essayWritingModal">Assignment Writing</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#essayWritingModal">Speech Writing</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#essayWritingModal">Book Report Writing</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#essayWritingModal">Lab Report Writing</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#essayWritingModal">Capstone Writing</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#essayWritingModal">Case Study Writing</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#essayWritingModal">Literature Review Writing</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#essayWritingModal">Personal Statement Writing</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#essayWritingModal">Coursework Writing</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#essayWritingModal">Homework Writing</a>
+            </div>
+          </div>
+          <a class="nav-item nav-link" href="samples.html">Samples</a>
+          <a class="nav-item nav-link" href="blog.html">Blog</a>
+          <a class="btn btn-primary mx-2 my-1 btn-sign-in" href="orderdetails.php">Order Now</a>
+          <a href="login.php" class="btn btn-outline-primary mx-2 my-1 btn-sign-in">Login</a>
+          <a href="signup.php" class="btn btn-outline-primary mx-2 my-1 btn-sign-in">Signup</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- Masthead -->
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5">Let The Experts Help You Complete Your Essay</h1>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form onsubmit="return false;">
+            <!-- Prevents the form from submitting -->
+            <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <input type="email" class="form-control form-control-lg"
+                  placeholder="Tell us the topic you are stuck with" />
+              </div>
+              <div class="col-12 col-md-3">
+                <a href="orderdetails.php">
+                  <!-- Change this to your target URL -->
+                  <button type="button" class="btn btn-block btn-lg btn-primary">
+                    Get Started
+                  </button>
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Image Showcases -->
+  <section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters">
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('./img/image1.PNG')">
+        </div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+          <h2 style="
+                font-weight: bold;
+                font-size: 36px;
+                text-transform: uppercase;
+              ">
+            Why Choose Expertsdom
+          </h2>
+          <p class="lead mb-0">
+            Expertsdom is the ultimate resource for students, providing paper
+            writing guides, topic ideas, samples, and writing tips. Our team
+            of expert writers specializes in various subjects and delivers
+            customized, plagiarism-free content. We offer personalized service
+            with direct writer communication, timely delivery, quality
+            assurance, free revisions, and a satisfaction guarantee. In
+            addition, we provide value-added resources, ensure confidentiality
+            and secure payments, and offer 24/7 customer support.
+          </p>
+
+    
+        </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="container">
+        <div class="py-5">
+          <h2 class="display-4">Professional Custom Essay Writing Service</h2>
+          <p class="lead px-5 text-start">
+            College times must be a headache. Students have to write an
+            unlimited amount of essays, academic research, and different types
+            of assignments in short terms. A little helping hand from
+            professional writers won't be redundant. To make the searching
+            process easy for learners, we've created the most convenient and
+            efficient online custom writing service! You will be impressed by
+            the quality and speedy feedback. Still don't believe us? Check it
+            yourself!
+          </p>
+          <div class="d-flex justify-content-center mt-3">
+            <a href="#" class="btn btn-outline-info mt-3" id="toggle-button">Read more</a>
+          </div>
+
+          <div id="additional-info" class="mt-4" style="display: none">
+            <div class="row">
+              <div class="col-md-6">
+                <h3>
+                  Why Do College Students Need Custom Essay Writing Help?
+                </h3>
+                <h5>Fair Price and Quick Delivery</h5>
+                <p class="text-start">
+                  Every schooler knows how complex is the writing process. It
+                  might take a couple of days or even months of hard work. In
+                  addition, personal life and part-time job also require fair
+                  maintenance. Therefore, a professional paper writing service
+                  is an optimal solution when you run out of time.
+                  Professional authors always put effort into finishing as
+                  soon as possible to meet customers' deadlines. Moreover, the
+                  rates are shockingly pleasant. Once you apply to the essay
+                  writer, you'll see the perfect ratio between value, time,
+                  and quality. The starting price for a page is just $15 for Orders below 12 Hours.
+                  So, even if you're unsure whether you want to apply to an
+                  online service, it is worth trying.
+                </p>
+                <h5>
+                  The Experts' Work Allows for Improving the Practical Skills
+                </h5>
+                <p class="text-start">
+                  Essay writing services provide customers with the best
+                  authors they've found. Yet, most of them are people who have
+                  experienced and walked through the research journey. Once
+                  they were students or teachers. Perhaps, they currently have
+                  relevant occupations. The result of their work is how hard
+                  they studied and mastered their skills before becoming
+                  professionals today.
+                </p>
+                <h5>Relevance of the Writing</h5>
+                <p class="text-start">
+                  College or university essays always have a similar structure
+                  and a certain set of requirements. As for a newbie, those
+                  might be complicated to fulfill. Still, it's not a problem
+                  for professional writers. Most of them have a long
+                  experience in various scientific categories and implement
+                  the knowledge from certain fields of study into the paper.
+                  Therefore, the complete assignment that you receive always
+                  meets all the requirements, precisely proves the main
+                  thesis, and contains essential links, quotes, and facts.
+                  Ordering a customized essay is a great chance to improve
+                  your grades and take some useful writing tips into account.
+                </p>
+                <h5>Custom Paper Writing Services for All Academic Levels</h5>
+                <p class="text-start">
+                  As mentioned, each assignment has several aspects that
+                  should be covered. For instance, the number of papers and
+                  facts that prove your thesis, the style of writing, a
+                  necessary extra page of used resources, etc. All of these
+                  requirements are often unknown to freshmen students. Our
+                  professional essay writing service provides experts and
+                  professionals in each field. The authors are uniquely
+                  qualified and highly skilled. They aim to achieve the best
+                  result while completing the research.
+                </p>
+
+                <h3>Why Choose Our Writing Services?</h3>
+                <p class="text-start">
+                  There are plenty of writing services on the Internet. At
+                  first glance, it's hard to determine which one is better.
+                  Yet, Custom Writings promises the best possible outcome. Do
+                  you still hesitate and are not sure whether you need to buy
+                  custom essays? Here is the Custom Writings list of
+                  guarantees that might bring you over!
+                </p>
+                <h5>Decades of Experience</h5>
+                <p class="text-start">
+                  We have been through a lot. Custom Writings has an
+                  experience of over 15 years! The service catered to millions
+                  of customers and prepared a wide range of papers on
+                  different topics. We have made a lot of new developments and
+                  researches ourselves to improve the quality of our job.
+                  Nowadays, no customer of our service is left unhappy or
+                  failed the assignment. We have a variety of positive
+                  comments and reviews on our writers, communication, and
+                  quality. The following academic writings and many more other
+                  papers are regularly ordered by students from all over the
+                  globe:
+                </p>
+                <ul class="text-start">
+                  <li>Presentations;</li>
+                  <li>Coursework;</li>
+                  <li>Dissertations;</li>
+                  <li>Capstone Projects;</li>
+                  <li>Annotated Bibliography</li>
+                </ul>
+                <h5>Safety and Confidentiality</h5>
+                <p class="text-start">
+                  We totally understand that the online format is tricky, and
+                  plenty of people don't want to put themselves at risk.
+                  However, Custom Writings promises a secure environment and
+                  confidentiality. We value your trust and want to provide you
+                  with the best possible experience. Therefore, our website
+                  provides full transparency on how we gather, use, and share
+                  your personal data. Our approach is pretty thoughtful, and
+                  we're trying to make it possible for you to control the flow
+                  of information that we receive from you, share publicly or
+                  keep private. We ask for no more data than needed to conduct
+                  communication and banking operations with customers.
+                </p>
+                <h5>Perfect Quality Custom Essays</h5>
+                <p class="text-start">
+                  Since the beginning of the service, we've gathered a lot of
+                  experience. Nowadays, we have a strict selection and provide
+                  students with qualified essay writers. Firstly, you can
+                  analyze the level of the author's professionalism through
+                  direct communication. Each of them has a high-degree level,
+                  specializing in particular areas. Secondly, our service
+                  implements quality control and plagiarism report to deliver
+                  100% unique writings. We take responsibility for your
+                  academic paper's uniqueness and the following score. In
+                  addition, we offer a flexible pricing system. You don't have
+                  to spend extras on the title page, bibliography, or a
+                  support session with our assistants.
+                </p>
+              </div>
+              <div class="col-md-6">
+                <h5>24/7 Support</h5>
+                <p class="text-start">
+                  Your comfort and clearness of our website are top-priority
+                  for Custom Writings. Our support crew is available 24/7 and
+                  ready to give you an instant answer. Moreover, the assistant
+                  will spend the necessary amount of time to solve your issue.
+                  Doesn't matter whether it takes 5 minutes or a couple of
+                  days. Customers can contact the support department using
+                  various ways. It is reachable by phone, live chat, and
+                  e-mail.
+                </p>
+                <h5>Students from All Over the UK Buy Our Custom Essays</h5>
+                <p class="text-start">
+                  Our clients come from different locations because we are
+                  good at delivering assignments when due. This means that we
+                  meet every deadline, whether the assignment involves a
+                  dissertation, a case study, or custom written papers.
+                </p>
+                <h5>
+                  Why Do Students Choose the Expertsdom Custom Writing
+                  Service?
+                </h5>
+                <p class="text-start">
+                  Students tend to prefer us primarily because we offer:
+                </p>
+                <h5>Money-Back Guarantees</h5>
+                <p class="text-start">
+                  Regardless of what you purchase on the internet, be it a
+                  furniture set or a writing service, you ought to get your
+                  money's worth and have options available for remediation
+                  should you feel dissatisfied.
+                </p>
+                <h5>24/7 Round-The-Clock Customer Support</h5>
+                <p class="text-start">
+                  We're always around to help out with any pre- or post-order
+                  concerns you might have every step of the way. Our customer
+                  experience team lives around the globe and, as such, are
+                  available round the clock to hash out your issues. Offering
+                  excellent service by keeping our customers satisfied is our
+                  priority.
+                </p>
+                <h5>Personalised Approach to Our Custom Essay Help</h5>
+                <p class="text-start">
+                  We want to hit your deadlines and exceed your expectations
+                  and needs every time. A typical writer working with us would
+                  put a lot of skill and effort into custom essay assistance.
+                  But the papers are even better if you give us sufficient
+                  info and answer a few enquiries about your preferences.
+                </p>
+                <h5>
+                  We Have More Than 250 Professional Writers on Our Team
+                </h5>
+                <p class="text-start">
+                  With over 250 writers on board and roughly 20,000 in
+                  annotated education materials output, we feel confident that
+                  we can keep up with whatever personal deadline you might
+                  have. You need to message the writer directly and outline
+                  the necessary instructions for your paper, and other details
+                  you might think are essential.
+                </p>
+                <h5>
+                  Our Writers Hold Advanced Degrees and Have 7+ Years of
+                  Writing Experience
+                </h5>
+                <p class="text-start">
+                  At Expertsdom, we have many specialists with degrees from
+                  several disciplines – from Sociology to the Sciences – to
+                  help with any essay service you might need. Most writers
+                  have superb degrees from leading colleges and are typically
+                  native language users.
+                </p>
+                <h5>
+                  We Know How to Make Custom Essays, Research Papers or Book
+                  Reviews
+                </h5>
+                <p class="text-start">
+                  Our services are by no means restricted to only essays. We
+                  provide all forms of professional academic writing and other
+                  custom-written papers you might require at some point or the
+                  other from top writers. From the occasional assignment
+                  request, book review, or research paper to dissertation
+                  writing, you need only get in touch and give us your
+                  instructions for us to hash every issue out.
+                </p>
+                <h5>Good Customer Service</h5>
+                <p class="text-start">
+                  We always strive to provide a satisfactory experience for
+                  each of our customers. After several years in this industry,
+                  we have developed a lot of knowledge regarding the demand of
+                  students and how to work with their preferences. Our
+                  customer service is top-tier, and our managers can find you
+                  the best possible expert who meets your requirements for a
+                  particular order.
+                </p>
+                <h5>Safe Payments and Full Privacy</h5>
+                <p class="text-start">
+                  At Expertsdom, your financial security is paramount. We
+                  ensure your personal information is safeguarded to the best
+                  of our ability and in accordance with applicable Primary
+                  Legislation.
+                </p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <button class="btn btn-outline-info" id="toggle-button-less">Read less</button>
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-5">
+    <div class="container text-start">
+      <div class="text-center mb-4">
+        <h2>3 Steps to Get Your Essay Done</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-4 mb-4">
+          <h5>1. Submit Your Instructions</h5>
+          <p>
+            Fill out the information form for our writer, provide all the
+            details.
+          </p>
+        </div>
+        <div class="col-lg-4 col-md-4 mb-4">
+          <h5>2. Deposit Your Payment</h5>
+          <p>
+            Make a deposit, ensure you like the essay you get before actually
+            paying for it.
+          </p>
+        </div>
+        <div class="col-lg-4 col-md-4 mb-4">
+          <h5>3. Revise Your Paper</h5>
+          <p>
+            Read the paper carefully. Release the payment to the writer if
+            satisfied.
+          </p>
+        </div>
+      </div>
+      <div class="text-center mb-4">
+        <a href="orderdetails.php" class="btn btn-primary">Let’s Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials text-center bg-light">
+    <div class="container">
+      <h2 class="mb-5 text-left">Testimonials</h2>
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3"
+              src="https://media.istockphoto.com/id/597958694/photo/young-adult-male-student-in-the-lobby-of-a-university.jpg?s=612x612&w=0&k=20&c=QaNEzmcKrLJzmwOcu2lgwm1B7rm3Ouq2McYYdmoMGpU="
+              alt="" style="width: 150px; height: 150px; object-fit: cover" />
+            <h5>Ericksen T.</h5>
+            <p class="font-weight-light mb-0">
+              "Expertsdom has been a game-changer for me. The timely help with
+              assignments is incredible!"
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpHbN790T883RYljZuHX17kH-10ll5cnzhGhX9J1m9b6y3BEsHvZqp5a23W1V85zTy49A&usqp=CAU"
+              alt="" style="width: 150px; height: 150px; object-fit: cover" />
+            <h5>Mary K.</h5>
+            <p class="font-weight-light mb-0">
+              "Expertsdom has helped me stay on top of my studies with ease!"
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3"
+              src="https://t3.ftcdn.net/jpg/04/36/94/18/360_F_436941892_24Wr9Sqeyxwxq6mxfPPzjNHcwiPEkwyc.jpg" alt=""
+              style="width: 150px; height: 150px; object-fit: cover" />
+            <h5>Sarah A.</h5>
+            <p class="font-weight-light mb-0">
+              "I love how seamless it is to collaborate on group projects
+              here!"
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3"
+              src="https://images.unsplash.com/photo-1604177091072-b7b677a077f6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5kaWFuJTIwc3R1ZGVudHxlbnwwfHwwfHx8MA%3D%3D"
+              alt="" style="width: 150px; height: 150px; object-fit: cover" />
+            <h5>John D.</h5>
+            <p class="font-weight-light mb-0">
+              "The tutoring services are top-notch, and the support is
+              excellent!"
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="call-to-action text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h2 class="mb-4">Ready to get started?</h2>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form>
+            <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <input type="email" class="form-control form-control-lg" placeholder="Enter your email..." />
+              </div>
+              <div class="col-12 col-md-3">
+                <a href="orderdetails.php">
+                  <!-- Change this to your target URL -->
+                  <button type="button" class="btn btn-block btn-lg btn-primary">
+                    Get Started
+                  </button>
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="essayWritingModal" tabindex="-1" role="dialog" aria-labelledby="essayWritingModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!-- Image Section -->
+        <div class="modal-header position-relative">
+          <img src="./img/sleep.jpg" alt="Hero Image" class="img-fluid w-100 modal-image" />
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <!-- Centered Title and Text -->
+          <h5 class="modal-title text-center" id="essayWritingModalLabel">Don't Waste Your Time Searching For a Sample
+          </h5>
+          <br>
+          <p class="text-center">
+            Get Job Done By A Professional Skilled Expert
+          </p>
+
+          <!-- Button instead of Paragraph -->
+          <a href="orderdetails.php" class="btn btn-info w-100 text-white"
+            style="background-color: rgb(9, 51, 190); border-color: skyblue;"
+            onmouseover="this.style.backgroundColor='#0066cc'; this.style.borderColor='#0066cc';"
+            onmouseout="this.style.backgroundColor='rgb(9, 51, 190)'; this.style.borderColor='skyblue';">
+            Get Writing Help
+          </a>
+
+        </div><!-- Modal Footer -->
+        <div class="modal-footer d-flex justify-content-between w-100">
+          <!-- 24/7 Support with Phone Icon -->
+          <div class="d-flex align-items-center">
+            <i class="bi bi-telephone text-white rounded-circle d-flex align-items-center justify-content-center"
+              style="background-color: green; font-size: 17px; width: 27px; height: 27px; text-align: center;"></i>
+            <span class="ml-2 font-weight-bold text-success" style="font-size: 12px;">24/7 Support</span>
+          </div>
+
+          <!-- Money Back Guarantee with Dollar Icon -->
+          <div class="d-flex align-items-center">
+            <i class="bi bi-currency-dollar text-white rounded-circle d-flex align-items-center justify-content-center"
+              style="background-color: green; font-size: 17px; width: 27px; height: 27px; text-align: center;"></i>
+            <span class="ml-2 font-weight-bold text-success" style="font-size: 12px;">Money Back Guarantee</span>
+          </div>
+
+          <!-- 100% Original with Checkmark Icon -->
+          <div class="d-flex align-items-center">
+            <i class="bi bi-check-circle text-white rounded-circle d-flex align-items-center justify-content-center"
+              style="background-color: green; font-size: 17px; width: 27px; height: 27px; text-align: center;"></i>
+            <span class="ml-2 font-weight-bold text-success" style="font-size: 12px;">100% Original</span>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row mt-4">
+        <div class="col-lg-12 text-start">
+          <div class="text-center">
+            <h1 class="fw-bold display-5">Our Services</h1>
+          </div>
+
+          <div class="row">
+            <!-- Service Columns -->
+            <div class="col-lg-3 col-md-6">
+              <ul class="list-unstyled text-start">
+                <li><a href="#">Admission Essay Writing Service</a></li>
+                <li><a href="#">Analytical Essay Writing Service</a></li>
+                <li><a href="#">APA Paper Writing Service</a></li>
+                <li><a href="#">Argumentative Essay Writing</a></li>
+                <li><a href="#">Book Report Writing Service</a></li>
+                <li><a href="#">Buy Argumentative Essay</a></li>
+                <li><a href="#">Buy Assignment</a></li>
+                <li><a href="#">Buy Biology Paper</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <ul class="list-unstyled">
+                <li><a href="#">Buy Capstone Project</a></li>
+                <li><a href="#">Buy Case Study</a></li>
+                <li><a href="#">Buy Coursework</a></li>
+                <li><a href="#">Buy Custom Essay</a></li>
+                <li><a href="#">Buy Essay</a></li>
+                <li><a href="#">Buy Literature Essay</a></li>
+                <li><a href="#">Buy Literature Review</a></li>
+                <li><a href="#">Buy Narrative Essay</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <ul class="list-unstyled">
+                <li><a href="#">Buy Personal Statement</a></li>
+                <li><a href="#">Buy Persuasive Essay</a></li>
+                <li><a href="#">Buy Research Proposal</a></li>
+                <li><a href="#">Buy Speech</a></li>
+                <li><a href="#">Capstone Project Writing</a></li>
+                <li><a href="#">Case Study Writing Service</a></li>
+                <li><a href="#">Coursework Help</a></li>
+                <li><a href="#">Coursework Writing Service</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <ul class="list-unstyled">
+                <li><a href="#">Descriptive Essay Writing Service</a></li>
+                <li><a href="#">Dissertation Proposal Writing</a></li>
+                <li><a href="#">Do My Assignment</a></li>
+                <li><a href="#">Do My Coursework</a></li>
+                <li><a href="#">Edit My Essay</a></li>
+                <li><a href="#">Essay for Sale</a></li>
+                <li><a href="#">Expository Essay Writing Service</a></li>
+                <li><a href="#">Literature Review Writing Service</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- New Section: Compliance and Legal Use Information -->
+      <div class="row mt-4">
+        <div class="col-12 d-flex justify-content-center">
+          <div class="text-center">
+            <p>
+              <strong>Use of Expertsdom.com complies with educational standards and
+                does not violate any regulations issued by educational
+                institutions.</strong>
+              <br /><strong>Our services are completely LEGAL and can be used
+                for:</strong>
+            </p>
+
+            <ol class="text-left d-inline-block">
+              <li>
+                Additional insight to the subject with appropriate detailing
+                of key questions to cover.
+              </li>
+              <li>
+                Provision of reasoning for your own statements and further
+                research.
+              </li>
+              <li>
+                Paraphrasing according to education guidelines issued by your
+                college or university in regard to plagiarism and acceptable
+                paraphrase.
+              </li>
+              <li>
+                Use of citations (please follow the citation recommendations).
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- Centered About, Contact, Terms Section -->
+      <div class="row mt-4">
+        <div class="col-lg-12 text-center my-auto">
+          <!-- Links Section -->
+        <ul class="list-inline mb-2">
+          <li class="list-inline-item">
+            <a href="contact.html#about">About</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+            <a href="contact.html#contact">Contact</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+            <a href="contact.html#terms">Terms of Use</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+            <a href="contact.html#privacy">Privacy Policy</a>
+            </li>
+            </ul>
+
+          <!-- Contact Information Section -->
+          <div class="container mb-3 ">
+            <div class="row d-flex justify-content-center align-items-center text-center">
+              <div class="col-12 col-md-auto mb-2">
+                <i class="fas fa-envelope text-primary"></i>
+                <a href="mailto:support@expertsdom.com">support@expertsdom.com</a>
+              </div>
+              <div class="col-12 col-md-auto mb-2">
+                <!-- <i class="fas fa-phone text-primary"></i> -->
+                <!-- <a href="tel:+254707482001">0707482001</a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Copyright Section -->
+          <p class="text-muted small mb-4 mb-lg-0">
+            &copy; Expertsdom 2024. All Rights Reserved.
+          </p>
+        </div>
+
+        <div class="col-lg-12 text-center my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="#"><i class="fab fa-facebook fa-2x fa-fw"></i></a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="#"><i class="fab fa-twitter-square fa-2x fa-fw"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#"><i class="fab fa-instagram fa-2x fa-fw"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document
+      .getElementById("toggle-button")
+      .addEventListener("click", function () {
+        document.getElementById("additional-info").style.display = "block";
+        this.style.display = "none"; // Hide the "Read more" button
+      });
+
+    document
+      .getElementById("toggle-button-less")
+      .addEventListener("click", function () {
+        document.getElementById("additional-info").style.display = "none";
+        document.getElementById("toggle-button").style.display =
+          "inline-block"; // Show the "Read more" button
+      });
+  </script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function () {
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/673e09122480f5b4f5a11e8e/1id556sjd';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+<!--End of Tawk.to Script-->
+<script>
+  $(document).ready(function () {
+    // Toggle hidden content on 'Read more' click
+    $("#toggle-button").on("click", function (e) {
+      e.preventDefault();
+      $("#additional-info").slideDown("slow"); // Show with smooth slide animation
+      $(this).hide(); // Hide 'Read more' button
+    });
+
+    // Hide content on 'Read less' click
+    $("#toggle-button-less").on("click", function () {
+      $("#additional-info").slideUp("slow", function () {
+        // Scroll back to the original section
+        document.querySelector(".showcase").scrollIntoView({ behavior: "smooth" });
+      });
+      $("#toggle-button").show(); // Show 'Read more' button
+    });
+  });
+</script>
+
+</body>
+
+</html>
