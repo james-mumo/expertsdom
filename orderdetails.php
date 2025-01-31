@@ -147,7 +147,7 @@ if (isset($_POST['submit'])) {
                                 Writing</a>
                         </div>
                     </div>
-                    <a class="nav-item nav-link" href="samples.html">Samples</a>
+                    <a class="nav-item nav-link" href="samples_view.php">Samples</a>
                     <a class="nav-item nav-link" href="blog.html">Blog</a>
                     <!-- <a class="btn btn-primary mx-2 my-1 btn-sign-in" href="orderdetails.php">Order Now</a> -->
                     <div class="ml-auto d-flex align-items-center">

@@ -96,9 +96,20 @@
         <!-- Show Audit Logs for Admin and Super User -->
         <?php if ($permission === 'Admin' || $permission === 'Super User') { ?>
           <li class="nav-item">
-            <a href="auditlog.php" class="nav-link">
+            <a href="blogs.php" class="nav-link">
               <i class="far fa-image nav-icon"></i>
-              <p>Audit Logs</p>
+              <p>Blogs</p>
+            </a>
+          </li>
+        <?php } ?>
+
+
+
+        <?php if ($permission === 'Admin' || $permission === 'Super User') { ?>
+          <li class="nav-item">
+            <a href="sample_upload.php" class="nav-link">
+              <i class="far fa-image nav-icon"></i>
+              <p>Samples</p>
             </a>
           </li>
         <?php } ?>
@@ -109,6 +120,13 @@
             <p> profile </p>
           </a>
         </li>
+
+        <!-- <li class="nav-item">
+          <a href="blogs.php" class="nav-link">
+            <i class="far fa-image nav-icon"></i>
+            <p> Blogs </p>
+          </a>
+        </li> -->
 
 
         <li class="nav-item">
