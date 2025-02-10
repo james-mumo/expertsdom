@@ -148,7 +148,7 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                     <a class="nav-item nav-link" href="samples_view.php">Samples</a>
-                    <a class="nav-item nav-link" href="blog.html">Blog</a>
+                    <a class="nav-item nav-link" href="blog.php">Blog</a>
                     <!-- <a class="btn btn-primary mx-2 my-1 btn-sign-in" href="orderdetails.php">Order Now</a> -->
                     <div class="ml-auto d-flex align-items-center">
                         <?php if ($user_id): ?>

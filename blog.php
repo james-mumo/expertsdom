@@ -1,67 +1,101 @@
 <?php
-// Optionally, you can include a header file or any other common elements for your page here.
-// For example: include('header.php');
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+ini_set("log_errors", 1);
+ini_set("error_log", "php-error.log"); // Logs errors to a file
+
+include('includes/dbconnection.php');
+
+try {
+    // Fetch blogs from the database
+    $query = "SELECT * FROM blogs ORDER BY created_at DESC";
+    $stmt = $dbh->prepare($query);
+    $stmt->execute();
+    $blogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (Exception $e) {
+    die("Error: " . $e->getMessage());
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Write a Reflective Essay: Tips on Effective Self-Analysis</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Expertsdom | Blog</title>
+    <link rel="icon" href="img/globe.png" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="css/samples-page.css" rel="stylesheet" />
+    <!-- PDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        section {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: white;
+        .blog-card {
+            background-color: #fff;
+            border: 2px solid #ddd;
             border-radius: 8px;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        h1,
-        h2 {
-            color: #333;
+        .blog-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02);
         }
 
-        p {
-            color: #555;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
+        .blog-image {
+            background-size: cover;
+            height: 180px;
         }
 
-        ul {
-            margin: 10px 0;
+        .blog-content {
+            padding: 10px;
+            flex-grow: 1;
         }
 
-        li {
+        .blog-badge {
+            display: inline-block;
+            background-color: #0049b8;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
             margin-bottom: 10px;
         }
 
-        footer {
-            text-align: center;
-            margin-top: 30px;
+        .modal-body {
+            text-align: left;
+            padding: 20px;
+        }
+
+        .modal-body h2 {
+            font-size: 22px;
+            color: #0056b3;
+            margin-top: 15px;
+        }
+
+        .modal-body p {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .modal-body em {
+            font-size: 16px;
+            font-style: italic;
+            color: #555;
         }
     </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="css/landing-page.min.css" rel="stylesheet" />
-    <link href="css/samples-page.css" rel="stylesheet" />
-    <link href="css/contact.css" rel="stylesheet" />
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
 </head>
 
 <body>
@@ -118,7 +152,8 @@
                                 Writing</a>
                         </div>
                     </div>
-                    <a class="nav-item nav-link" href="samples.html">Samples</a>
+                    <a class="nav-item nav-link" href="samples_view.php
+                    ">Samples</a>
                     <a class="nav-item nav-link" href="blog.php">Blog</a>
                     <a class="btn btn-primary mx-2 my-1 btn-sign-in" href="orderdetails.php">Order Now</a>
                     <a href="login.php" class="btn btn-outline-primary mx-2 my-1 btn-sign-in">Login</a>
@@ -134,47 +169,63 @@
             </p>
         </div>
     </div>
-    <!-- Main Content Section -->
-    <section>
-        <header>
-            <h1>How to Write a Reflective Essay: Tips on Effective Self-Analysis</h1>
-            <p>Writing a reflective essay, a quintessential exercise in self-analysis, demands both introspective rigor and articulate expression. This scholarly endeavour invites the writer to delve into personal experiences, scrutinize them with keen insight, and eloquently convey the derived lessons and implications. Herein, I elucidate the principles of crafting an effective reflective essay, as might be expounded by a learned professor in the early 20th century.</p>
-        </header>
+    <div class="container my-5">
+        <h2 class="text-center my-4">Latest Blog Posts</h2>
 
-        <!-- Section: Introduction -->
-        <section>
-            <h2>Introduction</h2>
-            <p>Firstly, it is imperative to comprehend the reflective essay’s fundamental purpose: to explore personal experiences and distil their significance. To this end, one must commence with an engaging introduction that sets the stage for introspection. This introduction should succinctly present the topic and elucidate the broader context within which the reflective exercise is situated. It serves as a prelude to the narrative that follows, inviting the reader into the realm of personal reflection.</p>
-        </section>
+        <div class="row">
+            <?php foreach ($blogs as $blog) { ?>
+                <div class="col-lg-3 col-md-4 mt-4 col-12" style="padding: 0 15px; cursor: pointer;">
+                    <div class="blog-card" data-bs-toggle="modal" data-bs-target="#blogModal"
+                        data-title="<?php echo htmlspecialchars($blog['title']); ?>"
+                        data-image="<?php echo !empty($blog['image_url']) ? htmlspecialchars($blog['image_url']) : './staff_images/abs1.jpg'; ?>"
+                        data-blogtype="<?php echo htmlspecialchars($blog['blog_type']); ?>"
+                        data-date="<?php echo date('F d, Y', strtotime($blog['created_at'])); ?>"
+                        data-subheading1="<?php echo htmlspecialchars($blog['subheading1']); ?>"
+                        data-subcontent1="<?php echo nl2br(htmlspecialchars($blog['subcontent1'])); ?>"
+                        data-subheading2="<?php echo htmlspecialchars($blog['subheading2']); ?>"
+                        data-subcontent2="<?php echo nl2br(htmlspecialchars($blog['subcontent2'])); ?>"
+                        data-subheading3="<?php echo htmlspecialchars($blog['subheading3']); ?>"
+                        data-subcontent3="<?php echo nl2br(htmlspecialchars($blog['subcontent3'])); ?>"
+                        data-conclusion="<?php echo nl2br(htmlspecialchars($blog['conclusion'])); ?>">
 
-        <!-- Section: Body -->
-        <section>
-            <h2>Body</h2>
-            <p>The body of the essay constitutes the core of the reflective process. Here, one must recount specific experiences with vivid detail, ensuring to articulate not only the events themselves but also the emotions, thoughts, and reactions they engendered. It is essential to adopt a chronological approach, presenting experiences in a logical sequence that enhances the reader's comprehension. However, mere narration is insufficient. The crux of a reflective essay lies in the analysis of these experiences. One must employ critical thinking to dissect the events, examining their causes and effects, and extracting the lessons they impart. This analytical process should be underpinned by theoretical frameworks where appropriate, integrating insights from relevant literature to bolster the essay’s intellectual rigor.</p>
-        </section>
+                        <div class="blog-image" style="background-image: url('<?php echo !empty($blog['image_url']) ? htmlspecialchars($blog['image_url']) : './staff_images/abs1.jpg'; ?>');">
+                        </div>
 
-        <!-- Section: Balance and Perspective -->
-        <section>
-            <h2>Balance and Perspective</h2>
-            <p>Moreover, the writer must strive to maintain a balanced perspective, acknowledging both positive and negative aspects of the experiences. Reflective essays demand an honest appraisal of personal growth, encompassing successes and shortcomings alike. This balanced approach enriches the narrative, rendering it more relatable and insightful.</p>
-        </section>
+                        <div class="blog-content">
+                            <span class="blog-badge"><?php echo htmlspecialchars($blog['blog_type']); ?></span>
+                            <h5 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 10px;">
+                                <?php echo htmlspecialchars($blog['title']); ?>
+                            </h5>
+                            <p style="font-size: 0.8rem; color: #555; margin-bottom: 10px;">
+                                <span style="font-weight: bold;"><?php echo date('F d, Y', strtotime($blog['created_at'])); ?></span>
+                            </p>
+                        </div>
 
-        <!-- Section: Conclusion -->
-        <section>
-            <h2>Conclusion</h2>
-            <p>The conclusion of a reflective essay should encapsulate the insights gleaned from the reflective journey. It ought to succinctly reiterate the key lessons and reflections, providing a cogent summary that underscores the essay’s central themes. Furthermore, the conclusion should offer a forward-looking perspective, contemplating the implications of the reflections for future actions or decisions. This forward-thinking element imbues the essay with a sense of progression and continual personal development.</p>
-        </section>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
 
-        <!-- Section: Final Thoughts -->
-        <section>
-            <h2>Final Thoughts</h2>
-            <p>In sum, writing a reflective essay necessitates a delicate balance of narrative and analysis, a faithful recounting of personal experiences coupled with a profound examination of their significance. By adhering to these guidelines, the writer can craft a reflective essay that is both intellectually rigorous and richly insightful, a testament to the enduring value of self-analysis in the pursuit of knowledge and personal growth.</p>
-        </section>
+    <!-- Modal -->
+    <div class="modal fade" id="blogModal" tabindex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="modalTitle"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalContent" style="padding: 20px;"></div>
+                <div class="modal-footer d-flex justify-content-center" style="padding: 15px;">
+                    <button id="downloadPDF" class="btn btn-primary me-3">Download PDF</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <footer>
-            <p>&copy; 2024 Reflective Essay Writing Guidelines. All rights reserved.</p>
-        </footer>
-    </section>
+
+
     <!-- Footer -->
     <footer class="footer bg-light">
         <div class="container">
@@ -287,6 +338,69 @@
             s0.parentNode.insertBefore(s1, s0);
         })();
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var blogCards = document.querySelectorAll(".blog-card");
+            var modalTitle = document.getElementById("modalTitle");
+            var modalContent = document.getElementById("modalContent");
+            var downloadBtn = document.getElementById("downloadPDF");
+
+            blogCards.forEach(function(card) {
+                card.addEventListener("click", function() {
+                    modalTitle.innerText = card.getAttribute("data-title");
+
+                    // Build modal content
+                    var contentHTML = `<p><strong>Date:</strong> ${card.getAttribute("data-date")}</p><hr>`;
+
+                    ["subheading1", "subheading2", "subheading3"].forEach((key, index) => {
+                        if (card.getAttribute("data-" + key)) {
+                            contentHTML += `
+                        <h3>${card.getAttribute("data-" + key)}</h3>
+                        <p>${card.getAttribute("data-subcontent" + (index + 1))}</p>
+                        <hr>`;
+                        }
+                    });
+
+                    contentHTML += `<h3>Conclusion</h3><p><em>${card.getAttribute("data-conclusion")}</em></p>`;
+
+                    modalContent.innerHTML = contentHTML;
+
+                    // PDF Download Functionality
+                    downloadBtn.onclick = function() {
+                        const {
+                            jsPDF
+                        } = window.jspdf;
+                        var doc = new jsPDF();
+                        let yOffset = 10;
+
+                        // Title
+                        doc.setFontSize(16);
+                        doc.text(modalTitle.innerText, 10, yOffset);
+                        yOffset += 10;
+
+                        // Extract structured content
+                        modalContent.querySelectorAll("p, h3, em, hr").forEach((el) => {
+                            if (el.tagName === "H3") {
+                                doc.setFontSize(14);
+                                doc.text(el.innerText, 10, yOffset);
+                                yOffset += 8;
+                            } else if (el.tagName === "P" || el.tagName === "EM") {
+                                doc.setFontSize(12);
+                                doc.text(el.innerText, 10, yOffset);
+                                yOffset += 7;
+                            } else if (el.tagName === "HR") {
+                                yOffset += 5; // Space for separator
+                            }
+                        });
+
+                        doc.save(modalTitle.innerText + ".pdf");
+                    };
+                });
+            });
+        });
+    </script>
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

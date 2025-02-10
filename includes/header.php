@@ -24,22 +24,18 @@
 
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="dropdown" href="#"><i class="fas fa-th-large"></i> </a>
-      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-        <div class="dropdown-divider"></div>
-        <a href="profile.php" class="dropdown-item">
-          <i class="fas fa-envelope mr-2"></i> profile
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="changepassword.php" class="dropdown-item">
-          <i class="fas fa-users mr-2"></i> settings
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="logout.php" class="dropdown-item">
-          <i class="fas fa-file mr-2"></i> logout
-        </a>
-      </div>
+
+
+    <li class="nav-item d-none d-sm-inline-block">
+      <a href="logout.php" class="nav-link"> <i class="fas fa-users mr-2"></i> Settings</a>
+    </li>
+
+    <li class="nav-item d-none d-sm-inline-block">
+      <a href="logout.php" class="nav-link"> <i class="fas fa-envelope mr-2"></i> Profile</a>
+    </li>
+
+    <li class="nav-item d-none d-sm-inline-block">
+      <a href="logout.php" class="nav-link"> <i class="fas fa-file mr-2"></i> Logout</a>
     </li>
   </ul>
 </nav>

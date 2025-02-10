@@ -1,10 +1,11 @@
 <?php
-  // Optionally, you can include a header file or any other common elements for your page here.
-  // For example: include('header.php');
+// Optionally, you can include a header file or any other common elements for your page here.
+// For example: include('header.php');
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +19,9 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    
+
 </head>
+
 <body>
 
     <!-- Navigation -->
@@ -32,7 +34,7 @@
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-    
+
             <!-- Collapsible Navbar Content -->
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <div class="navbar-nav ml-auto">
@@ -76,7 +78,7 @@
                         </div>
                     </div>
                     <a class="nav-item nav-link" href="samples.html">Samples</a>
-                    <a class="nav-item nav-link" href="blog.html">Blog</a>
+                    <a class="nav-item nav-link" href="blog.php">Blog</a>
                     <a class="btn btn-primary mx-2 my-1 btn-sign-in" href="orderdetails.php">Order Now</a>
                     <a href="login.php" class="btn btn-outline-primary mx-2 my-1 btn-sign-in">Login</a>
                 </div>
@@ -103,7 +105,7 @@
         <section>
             <h2>Understanding the Impacts</h2>
             <p>Climate change is no longer a distant threat; it is a reality affecting every corner of the UK. The warming of our planet has led to unpredictable weather patterns, severe storms, and flooding. Coastal erosion is accelerating, threatening coastal towns and habitats. The agricultural sector, a backbone of the UK economy, is struggling with changing growing seasons and extreme weather, affecting crop yields and food security. Moreover, biodiversity is under threat as species struggle to adapt to rapidly changing environments.</p>
-            
+
             <!-- Image/Graph Placeholder for Impacts -->
             <div style="margin-top: 20px;">
                 <!-- <h3>Graph: Impact of Climate Change in the UK</h3>
@@ -135,66 +137,66 @@
 
     <!-- Optional Footer -->
     <!-- Footer -->
-<footer class="footer bg-light">
-    <div class="container">
-        <div class="row mt-4">
-            <div class="col-lg-12 text-start">
-                <div class="text-center">
-                    <h1 class="fw-bold display-5">Our Services</h1>
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-lg-12 text-start">
+                    <div class="text-center">
+                        <h1 class="fw-bold display-5">Our Services</h1>
+                    </div>
+                    <div class="row">
+                        <!-- Service Columns -->
+                        <div class="col-lg-3 col-md-6">
+                            <ul class="list-unstyled text-start">
+                                <li><a href="#">Admission Essay Writing Service</a></li>
+                                <li><a href="#">Analytical Essay Writing Service</a></li>
+                                <li><a href="#">APA Paper Writing Service</a></li>
+                                <li><a href="#">Argumentative Essay Writing</a></li>
+                                <li><a href="#">Book Report Writing Service</a></li>
+                                <li><a href="#">Buy Argumentative Essay</a></li>
+                                <li><a href="#">Buy Assignment</a></li>
+                                <li><a href="#">Buy Biology Paper</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Buy Capstone Project</a></li>
+                                <li><a href="#">Buy Case Study</a></li>
+                                <li><a href="#">Buy Coursework</a></li>
+                                <li><a href="#">Buy Custom Essay</a></li>
+                                <li><a href="#">Buy Essay</a></li>
+                                <li><a href="#">Buy Literature Essay</a></li>
+                                <li><a href="#">Buy Literature Review</a></li>
+                                <li><a href="#">Buy Narrative Essay</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Buy Personal Statement</a></li>
+                                <li><a href="#">Buy Persuasive Essay</a></li>
+                                <li><a href="#">Buy Research Proposal</a></li>
+                                <li><a href="#">Buy Speech</a></li>
+                                <li><a href="#">Capstone Project Writing</a></li>
+                                <li><a href="#">Case Study Writing Service</a></li>
+                                <li><a href="#">Coursework Help</a></li>
+                                <li><a href="#">Coursework Writing Service</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Descriptive Essay Writing Service</a></li>
+                                <li><a href="#">Dissertation Proposal Writing</a></li>
+                                <li><a href="#">Do My Assignment</a></li>
+                                <li><a href="#">Do My Coursework</a></li>
+                                <li><a href="#">Edit My Essay</a></li>
+                                <li><a href="#">Essay for Sale</a></li>
+                                <li><a href="#">Expository Essay Writing Service</a></li>
+                                <li><a href="#">Literature Review Writing Service</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                    <!-- Service Columns -->
-                    <div class="col-lg-3 col-md-6">
-                        <ul class="list-unstyled text-start">
-                            <li><a href="#">Admission Essay Writing Service</a></li>
-                            <li><a href="#">Analytical Essay Writing Service</a></li>
-                            <li><a href="#">APA Paper Writing Service</a></li>
-                            <li><a href="#">Argumentative Essay Writing</a></li>
-                            <li><a href="#">Book Report Writing Service</a></li>
-                            <li><a href="#">Buy Argumentative Essay</a></li>
-                            <li><a href="#">Buy Assignment</a></li>
-                            <li><a href="#">Buy Biology Paper</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Buy Capstone Project</a></li>
-                            <li><a href="#">Buy Case Study</a></li>
-                            <li><a href="#">Buy Coursework</a></li>
-                            <li><a href="#">Buy Custom Essay</a></li>
-                            <li><a href="#">Buy Essay</a></li>
-                            <li><a href="#">Buy Literature Essay</a></li>
-                            <li><a href="#">Buy Literature Review</a></li>
-                            <li><a href="#">Buy Narrative Essay</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Buy Personal Statement</a></li>
-                            <li><a href="#">Buy Persuasive Essay</a></li>
-                            <li><a href="#">Buy Research Proposal</a></li>
-                            <li><a href="#">Buy Speech</a></li>
-                            <li><a href="#">Capstone Project Writing</a></li>
-                            <li><a href="#">Case Study Writing Service</a></li>
-                            <li><a href="#">Coursework Help</a></li>
-                            <li><a href="#">Coursework Writing Service</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Descriptive Essay Writing Service</a></li>
-                            <li><a href="#">Dissertation Proposal Writing</a></li>
-                            <li><a href="#">Do My Assignment</a></li>
-                            <li><a href="#">Do My Coursework</a></li>
-                            <li><a href="#">Edit My Essay</a></li>
-                            <li><a href="#">Essay for Sale</a></li>
-                            <li><a href="#">Expository Essay Writing Service</a></li>
-                            <li><a href="#">Literature Review Writing Service</a></li>
-                        </ul>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
+            </div>
 
             <!-- Centered About, Contact, Terms Section -->
             <div class="row mt-4">
@@ -216,7 +218,7 @@
                             <a href="contact.html#privacy">Privacy Policy</a>
                         </li>
                     </ul>
-            
+
                     <div class="container mb-3 ">
                         <div class="row d-flex justify-content-center align-items-center text-center">
                             <div class="col-12 col-md-auto mb-2">
@@ -231,13 +233,14 @@
                     </p>
                 </div>
             </div>
-            </div>
+        </div>
     </footer>
-    
+
     <!-- Tawk.to Live Chat -->
     <script type="text/javascript">
-        (function () {
-            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
             s1.async = true;
             s1.src = 'https://embed.tawk.to/61a4f66f88f2e716e8fc86bb/1d8if85j0';
             s1.charset = 'UTF-8';
@@ -246,9 +249,10 @@
         })();
     </script>
 
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>

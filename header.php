@@ -1,11 +1,13 @@
 <!-- header.php -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -27,7 +29,7 @@
                     </div>
                     <a href="samples.html">Samples</a>
                     <a href="#">Plagiarism Checker</a>
-                    <a href="blog.html">Blog</a>
+                    <a href="blog.php">Blog</a>
                     <!-- <a href="#">For Writers</a>
                     <a href="#">Log In</a> -->
                     <a href="orderdetails.html">Order Now</a>
@@ -38,4 +40,5 @@
         </nav>
     </header>
 </body>
+
 </html>

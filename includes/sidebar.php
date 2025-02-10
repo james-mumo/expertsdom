@@ -117,7 +117,7 @@
         <li class="nav-item">
           <a href="profile.php" class="nav-link">
             <i class="fas fa-envelope nav-icon"></i>
-            <p> profile </p>
+            <p> Profile </p>
           </a>
         </li>
 
@@ -132,7 +132,7 @@
         <li class="nav-item">
           <a href="changepassword.php" class="nav-link">
             <i class="fas fa-users mr-2"></i>
-            <p> settings </p>
+            <p> Settings </p>
           </a>
         </li>
 
@@ -140,7 +140,7 @@
         <li class="nav-item">
           <a href="logout.php" class="nav-link">
             <i class="fas fa-file nav-icon"></i>
-            <p> logout </p>
+            <p> Logout </p>
           </a>
         </li>
 
