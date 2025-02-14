@@ -391,6 +391,11 @@ if (isset($_POST["del"]) && isset($_POST["id"])) {
                 </div>
                 <div class="modal-body" id="info_view">
                     <!-- Assignment details will be loaded here -->
+                    <div class="form-group">
+                        <label for="amount_paid">Amount Paid:</label>
+                        <input type="number" id="amount_paid" class="form-control" min="0" step="0.01" placeholder="Enter amount paid">
+                    </div>
+                    <button type="button" id="save_amount" class="btn btn-success">Save Amount</button>
 
                 </div>
 
@@ -440,12 +445,22 @@ if (isset($_POST["del"]) && isset($_POST["id"])) {
                 var is_done = $('#work_done').is(':checked') ? 1 : 0;
                 var file_data = $('#work_results').prop('files')[0]; // Get the file
                 var comments = $('#comments').val(); // Get the comments from the textarea
+                var amount_paid = $('#amount_paid').val(); // Get the entered amount
+
+                if (amount_paid === '' || isNaN(amount_paid) || amount_paid < 0) {
+                    alert("Please enter a valid amount.");
+                    return;
+                }
+
+                console.log("Assignment ID:", assignment_id);
+                console.log("Amount Paid:", amount_paid);
 
                 var formData = new FormData();
                 formData.append('id', assignment_id);
                 formData.append('work_is_done', is_done);
                 formData.append('work_results', file_data); // Append the file
                 formData.append('comments', comments); // Append the comments
+                formData.append('amount_paid', amount_paid); // Append the amount paid
 
                 $.ajax({
                     url: "update_assignment.php", // Create this file to handle updates
@@ -464,6 +479,7 @@ if (isset($_POST["del"]) && isset($_POST["id"])) {
                     }
                 });
             });
+
 
 
             // Delete assignment

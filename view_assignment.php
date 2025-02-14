@@ -169,6 +169,10 @@ if (isset($_POST['view_id'])) {
         ?>
 
 
+        <?php
+        // Fetch the amount paid
+        $amount_paid = isset($row['amount_paid']) ? $row['amount_paid'] : 0;
+        ?>
 
 
         <h4 style="text-align: center; font-size: 22px; color: teal; font-weight: bold; margin-bottom: 2px;  margin-top: 10px; ">Work Results</h4>
@@ -194,16 +198,35 @@ if (isset($_POST['view_id'])) {
                 <div style="background-color: #e8f5e9; padding: 10px; border-radius: 5px; margin-bottom: 10px; display: flex; flex-direction: column; align-items: flex-start; width: 100%;">
                     <!-- File Name and Link -->
                     <div style="margin-bottom: 10px; overflow-wrap: break-word; word-wrap: break-word; max-width: 100%;">
-                        <a href="<?php echo $file_path; ?>" target="_blank" style="color: #388e3c; font-size: 1rem; text-decoration: none; font-weight: bold;">
+                        <a href="" target="_blank" style="color: #388e3c; font-size: 1rem; text-decoration: none; font-weight: bold; pointer-events: none;">
                             <?php echo ($index + 1) . ". " . htmlentities($file); ?>
                         </a>
                     </div>
 
-                    <!-- Download Button -->
-                    <a href="<?php echo $file_path; ?>" download
-                        style="background-color: #388e3c; color: white; padding: 5px 15px; border-radius: 5px; font-size: 0.9rem; text-decoration: none; display: inline-block;">
-                        Download
-                    </a>
+
+                    <?php if ($permission === 'User') { ?>
+                        <!-- Download Button -->
+                        <!-- Download Button -->
+                        <a href="<?php echo $file_path; ?>" download
+                            style="background-color: #388e3c; color: white; padding: 5px 15px; border-radius: 5px; font-size: 0.9rem; text-decoration: none; display: inline-block; 
+                            <?php echo ($amount_paid == 0) ? 'pointer-events: none; opacity: 0.5;' : ''; ?>">
+                            Download
+                        </a>
+
+                        <?php if ($amount_paid == 0) { ?>
+                            <span style="color: #f44336; font-size: 1.1 rem; margin-top: 5px;">Kindly Pay to Download Submitted Work</span>
+                        <?php } ?>
+                    <?php } ?>
+
+
+                    <?php if ($permission === 'Admin' || $permission === 'Super User') { ?>
+                        <a href="<?php echo $file_path; ?>" download
+                            style="background-color: #388e3c; color: white; padding: 5px 15px; border-radius: 5px; font-size: 0.9rem; text-decoration: none; display: inline-block;">
+                            View Uploaded File
+                        </a>
+                    <?php } ?>
+
+
                 </div>
 
         <?php
@@ -216,10 +239,10 @@ if (isset($_POST['view_id'])) {
 
 
         <?php if ($permission === 'User') { ?>
-            <div style="margin-bottom: 20px; flex:1;">
+            <!-- <div style="margin-bottom: 20px; flex:1;">
                 <label for="comments" style="font-size: 18px; font-weight: bold; color: #333; margin-bottom: 10px;">Comments from Tutor:</label>
                 <textarea id="comments" style="padding: 10px; font-size: 14px; width: 100%; height: 120px; border-radius: 4px; border: 1px solid #ddd;"><?php echo htmlentities($row['comments']); ?></textarea>
-            </div>
+            </div> -->
         <?php } ?>
 
         <?php if ($permission === 'Admin' || $permission === 'Super User') { ?>
@@ -242,6 +265,13 @@ if (isset($_POST['view_id'])) {
                     style="font-size: 20px; font-weight: bold; color: teal; cursor: pointer; margin: 0;">
                     Mark as Done
                 </label>
+            </div>
+            <div style="flex: 1; padding-left: 20px; display: flex; align-items: center;">
+                <div class="form-group">
+                    <label for="amount_paid">Amount Paid:</label>
+                    <input type="number" id="amount_paid" class="form-control" min="0" step="0.01" placeholder="Enter amount paid">
+                </div>
+
             </div>
         </div>
 

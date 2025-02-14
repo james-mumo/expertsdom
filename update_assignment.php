@@ -63,9 +63,17 @@ if (isset($_POST['id'])) {
 
     $work_is_done = mysqli_real_escape_string($con, $_POST['work_is_done']);
     $comments = mysqli_real_escape_string($con, $_POST['comments']); // Get the comments
+    // $amount_paid = isset($_POST['amount_paid']) ? mysqli_real_escape_string($con, $_POST['amount_paid']) : 0;
+
+    $amount_paid = isset($_POST['amount_paid']) ? mysqli_real_escape_string($con, $_POST['amount_paid']) : 'NOT RECEIVED';
+
+    error_log("Received amount_paid: " . $amount_paid); // Log to PHP error log
+    echo json_encode(["status" => "debug", "amount_paid" => $amount_paid]); // Check output
+    exit;
 
     // Update the work_is_done status and comments
-    $update_query = "UPDATE assignments SET work_is_done = '$work_is_done', comments = '$comments' WHERE id = '$id'";
+    $update_query = "UPDATE assignments SET work_is_done = '$work_is_done', comments = '$comments', amount_paid = '$amount_paid' WHERE id = '$id'";
+
 
     $file = $_FILES["work_results"]["name"];
     // Replace spaces with underscores in the filename
