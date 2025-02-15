@@ -229,7 +229,7 @@
                     </div>
 
                     <p class="text-center">
-                        <strong>&copy; 2024 Expertsdom. All rights reserved. Designed by Expertsdom Team.</strong>
+                        <strong>&copy; 2025 Expertsdom. All rights reserved. Designed by Expertsdom Team.</strong>
                     </p>
                 </div>
             </div>

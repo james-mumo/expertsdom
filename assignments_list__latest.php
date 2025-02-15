@@ -205,9 +205,7 @@ if (isset($_POST["del"]) && isset($_POST["id"])) {
                                                         <td><?php echo htmlentities($row['topic']); ?></td>
                                                         <td><?php echo htmlentities($row['pages']); ?></td>
                                                         <td>
-                                                            <!-- <button class="btn btn-info btn-xs view_data" id="<?php echo $row['id']; ?>">View</button> -->
-                                                            <a href="assignment_view_page.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-xs">View</a>
-
+                                                            <button class="btn btn-info btn-xs view_data" id="<?php echo $row['id']; ?>">View</button>
                                                             <button class="btn btn-danger btn-xs delete_data" data-id="<?php echo $row['id']; ?>">Delete</button>
                                                         </td>
                                                     </tr>
