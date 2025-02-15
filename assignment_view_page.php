@@ -495,20 +495,24 @@ if (isset($_GET['id'])) {
                     <?php if ($assignment) { ?>
                         <form action="delete_assignment_1.php" method="POST" style="display:inline;">
                             <input type="hidden" name="id" value="<?php echo $assignment['id']; ?>">
-                            <button type="submit" class="btn btn-danger" style="padding: 10px 20px; font-size: 16px; border: none; cursor: pointer; border-radius: 4px; background-color:rgb(230, 1, 1); color: white;" onclick="return confirm('Are you sure you want to delete this assignment?');">
+                            <button type="submit" class="btn btn-danger" style="padding: 10px 20px; font-size: 16px; border: none; cursor: pointer; border-radius: 4px; background-color: rgb(230, 1, 1); color: white;" onclick="return confirm('Are you sure you want to delete this assignment?');">
                                 Delete Assignment
                             </button>
                         </form>
                     <?php } ?>
-
-
 
                     <button type="button" class="btn" id="save_changes" data-id="<?php echo $assignment['id']; ?>"
                         style="padding: 10px 20px; font-size: 16px; border: none; cursor: pointer; border-radius: 4px; background-color: #28a745; color: white;">
                         Save Changes
                     </button>
 
+                    <!-- Full-width Back Button -->
+                    <button type="button" class="btn" onclick="window.location.href='assignments_list.php';"
+                        style="display: block; width: 100%; margin-top: 20px; padding: 15px; font-size: 18px; border: none; cursor: pointer; border-radius: 4px; background-color: #007bff; color: white;">
+                        Back to All Assignments List View
+                    </button>
                 </div>
+
 
             <?php } ?>
 

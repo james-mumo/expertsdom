@@ -1,6 +1,13 @@
 <?php
 include "includes/dbconnection.php"; // Ensure $con is properly set
 
+// Include PHPMailer classes
+require 'vendor/autoload.php';  // Ensure this points to your Composer autoload file
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -9,16 +16,64 @@ if (!$con) {
     die("Database connection failed.");
 }
 
+// Function to send the email
+function sendEmail($recipient_email)
+{
+    $mail = new PHPMailer(true);
+
+    try {
+        // Server settings
+        $mail->isSMTP();  // Use SMTP for sending email
+        $mail->Host = 'mail.expertsdom.com';  // SMTP server
+        $mail->SMTPAuth = true;  // Enable SMTP authentication
+        $mail->Username = 'support@expertsdom.com';  // SMTP username (use the full email)
+        $mail->Password = 'Support@4321';  // SMTP password (replace with your password)
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;  // Use STARTTLS encryption
+        $mail->Port = 587;  // SMTP port (usually 587 for STARTTLS)
+
+        // Recipients
+        $mail->setFrom('support@expertsdom.com', 'Expertsdom Assistance');  // Sender's email
+        $mail->addAddress($recipient_email);  // Recipient's email
+
+        // Content
+        $mail->isHTML(true);  // Set email format to HTML
+        $mail->Subject = 'Expertsdom Assignment Update';  // Subject of the email
+        $mail->Body    = 'This is an automated mail to notify of your assignment update on Expertsdom.';  // HTML body content
+        $mail->AltBody = 'Login to check work progress or results.';  // Plain text body content
+
+        // Send the email
+        if ($mail->send()) {
+            echo '';
+        }
+    } catch (Exception $e) {
+        // Output error message if sending fails
+        echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+    }
+}
+
+
+
+
+
 if (isset($_POST['update'])) {
     $assignment_id = $_POST['assignment_id'];
     $amount_paid = $_POST['amount_paid'];
     $work_is_done = isset($_POST['work_is_done']) ? $_POST['work_is_done'] : 0;
     $file_path = "";
 
-    // Log values to console
-    echo "<script>console.log('Assignment ID: " . $assignment_id . "');</script>";
-    echo "<script>console.log('Amount Paid: " . $amount_paid . "');</script>";
-    echo "<script>console.log('Work is Done: " . $work_is_done . "');</script>";
+    $id = mysqli_real_escape_string($con, $_POST['assignment_id']);
+
+    // Get the recipient email from the assignments table
+    $email_query = "SELECT email FROM assignments WHERE id = '$id'";
+    $result = mysqli_query($con, $email_query);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $recipient_email = $row['email'];
+    } else {
+        echo json_encode(["status" => "error", "message" => "No email found for ID: $id"]);
+        exit;
+    }
 
     // Handle file upload if present
     if (isset($_FILES["work_results"]) && $_FILES["work_results"]["name"] != "") {
@@ -50,10 +105,24 @@ if (isset($_POST['update'])) {
         if (move_uploaded_file($_FILES["work_results"]["tmp_name"], $file_path)) {
             // Update file in database
             $file_update_query = "UPDATE assignments SET work_results = '$new_files' WHERE id = '$assignment_id'";
-            if (!mysqli_query($con, $file_update_query)) {
-                die("Error updating file path: " . mysqli_error($con));
+
+            if (mysqli_query(
+                $con,
+                $file_update_query
+            )) {
+                $status = "success";
+                $message = "File uploaded and assignment updated successfully.";
+
+                // Call the sendEmail function to send the email
+                if (function_exists('sendEmail')) {
+                    sendEmail($recipient_email);
+                }
+            } else {
+                $status = "error";
+                $message = "Error saving file name in the database.";
             }
-            echo "<script>console.log('File uploaded: " . $file_path . "');</script>";
+
+            echo "Assignment Details and File(s) Updated Succesfully!";
         } else {
             die("Error uploading the file.");
         }
@@ -70,11 +139,16 @@ if (isset($_POST['update'])) {
 
     if ($stmt->execute()) {
         echo "Assignment updated successfully.";
-        echo "<script>console.log('Update successful');</script>";
+        // header("Location: assignments_list.php");
+
+        exit();
     } else {
         echo "Error updating assignment: " . $stmt->error;
     }
 
+    // Redirect back to assignments page
+
     $stmt->close();
     $con->close();
+    exit();
 }
